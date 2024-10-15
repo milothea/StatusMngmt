@@ -1,0 +1,156 @@
+@import '../../css/mixins.scss';
+
+.withStatusIcon {
+  @include flex(center, start);
+  gap: .5rem;
+}
+
+.select {
+  @include flex;
+  position: relative;
+  width: 100%;
+  height: 2rem;
+  border-bottom: 1px solid $shadow-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover > .dropdownList {
+    display: block;
+  }
+
+  .selectedValue {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .dropdownItem,
+  .placeholder,
+  .selectedValue {
+    width: 100%;
+    padding-left: .25rem;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+  }
+
+  .selectedValue,
+  .placeholder {
+    height: 100%;
+    width: 100%;
+    line-height: 80px;
+    letter-spacing: .15rem;
+    vertical-align: center;
+  }
+
+  .placeholder {
+    color: $shadow-color;
+    user-select: none;
+  }
+
+  .arrowIcon {
+    @include flex;
+    height: 100%;
+
+    &:hover svg {
+      fill: $text-color;
+    }
+  }
+
+  .dropdownList {
+    @include box-shadow;
+    @include flex(center, space-between);
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 2.1rem;
+    left: 0;
+    background-color: $base-color;
+    border-radius: 0 0 .5rem .5rem;
+    z-index: 10;
+    transform: translateY(0);
+    transition: all .5s ease;
+
+    .dropdownItem {
+      height: 2.4rem;
+      border-bottom: 1px solid $neutral-color;
+      padding-top: .8rem;
+      padding-bottom: .8rem;
+      color: $text-color;
+
+      &.selectedItem {
+        background-color: rgba(15, 154, 241, .15);
+      }
+
+      &:hover {
+        cursor: pointer;
+        font-weight: 800;
+        background-color: $neutral-color;
+      }
+    }
+  }
+}
+
+.select.searchFilter {
+  width: 15rem;
+  height: 5rem;
+  padding-right: 1rem;
+  border-bottom: none;
+
+  .dropdownList {
+    top: 5rem;
+  }
+
+  .dropdownItem,
+  .placeholder,
+  .selectedValue {
+    padding-left: 1rem;
+  }
+
+  .dropdownItem {
+    height: 3.5rem;
+  }
+
+  @media screen and (max-width: $screen-m) {
+    height: 2.5rem;
+    background-color: $base-color;
+
+    .dropdownList {
+      top: 2.5rem;
+    }
+
+    .dropdownItem,
+    .placeholder,
+    .selectedValue {
+      height: 2.5rem;
+      line-height: 2.5rem;
+    }
+
+    .dropdownItem {
+      padding-top: 0;
+    }
+  }
+}
+
+.statusIcon {
+  width: 5px;
+  height: 5px;
+  border: .2rem solid transparent;
+  border-radius: 50%;
+
+  &.working {
+    border-color: $working;
+  }
+
+  &.onVacation {
+    border-color: $onVacation;
+  }
+
+  &.businessTrip {
+    border-color: $businessTrip;
+  }
+
+  &.lunchTime {
+    border-color: $lunchTime;
+  }
+}

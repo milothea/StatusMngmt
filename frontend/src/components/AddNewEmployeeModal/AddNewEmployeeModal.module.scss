@@ -1,0 +1,114 @@
+@import '../../css/mixins.scss';
+
+.modalWrapper {
+  @include flex;
+  @include box-shadow;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0, .35);
+  overflow: hidden;
+}
+
+
+.modalWindow {
+  width: 30%;
+  height: fit-content;
+  background-color: $neutral-color;
+  border-radius: .25rem;
+
+  .modalHeader,
+  .modalContent,
+  .modalFooter {
+    padding: 1rem;
+  }
+
+  .modalHeader {
+    @include flex(center, space-between);
+    border-bottom: .063rem solid $shadow-color;
+
+    .modalTitle {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $text-color;
+    }
+
+    .closeIcon {
+      width: 35px;
+      height: 35px;
+      svg {
+        fill: $text-color;
+      }
+    }
+  }
+
+  .modalContent {
+    @include flex;
+    width: 80%;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0 auto;
+
+    .label {
+      display: block;
+      font-size: 1.1rem;
+      color: $additional-color;
+      margin-bottom: .5rem;
+    }
+
+    .input {
+      flex-grow: 1;
+      height: 1.3rem;
+      padding: .5rem;
+      border: none;
+      font-size: 1.3rem;
+      color: $text-color;
+
+      &:hover,
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .modalFooter {
+    @include flex;
+    gap: 1rem;
+    border-top: .063rem solid $shadow-color;
+  }
+  
+  @media screen and (max-width: $screen-l) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: $screen-l) {
+    width: 70%;
+  }
+}
+
+.inputWrapper {
+  @include flex;
+  width: calc(100% - 1.5rem);
+  height: fit-content;
+  margin-bottom: 1.2rem;
+  background-color: $base-color;
+  border-bottom: .063rem solid $shadow-color;
+
+  .clearIcon {
+    height: 100%;
+  }
+}
+
+.statusRadio {
+  @include flex(center, flex-start);
+  gap: 1rem;
+  height: 2.5rem;
+
+  label {
+    font-size: 1.3rem;
+    line-height: 1.2rem;
+  }
+}

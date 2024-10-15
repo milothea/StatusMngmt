@@ -1,0 +1,60 @@
+@import '../../css/mixins.scss';
+
+.container {
+  @include box-shadow;
+  @include flex(end, space-between);
+  width: 28rem;
+  height: 15rem;
+  flex-direction: row;
+  gap: 1.8rem;
+  padding: 2rem;
+  background-color: $base-color;
+  border-radius: .5rem;
+  box-sizing: border-box;
+
+  &:hover {
+    @include box-shadow($accent-color);
+    cursor: pointer;
+  }
+
+
+  .cardBock {
+    height: 100%;
+
+    &.avatarBlock {
+      .avatar,
+      .noAvatar {
+        height: 11rem;
+        width: 11rem;
+        border-radius: 50%;
+        z-index: 0;
+      }
+    }
+
+    &.infoBlock {
+      @include flex(star, end);
+      flex-direction: column;
+      flex-grow: 1;
+
+      .employeeName {
+        max-width: 12rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: .8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .statusSelect {
+        height: 2rem;
+        font-size: .9rem;
+        border-bottom: .063rem solid $shadow-color;
+
+        .statusSelectOption {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

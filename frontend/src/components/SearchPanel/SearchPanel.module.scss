@@ -1,0 +1,126 @@
+@import '../../css/mixins.scss';
+
+.container {
+  @include flex(center, flex-start);
+  flex-grow: 1;
+  height: 100%;
+
+  .createButton {
+    width: 14.25rem;
+    height: 100%;
+
+    .buttonLabel {
+      @include flex(center, space-between);
+      width: 100%;
+      padding-left: 2.5rem;
+      padding-right: 1rem;
+
+      .text {
+        display: inline-block;
+        height: 2.4rem;
+        font-size: 1.7rem;
+        font-weight: 600;
+        line-height: 2.4rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-l) {
+    .container {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.filters,
+.inputWrapper {
+  @include flex;
+  height: 100%;
+}
+
+.filters,
+.inputWrapper,
+.input {
+  flex-grow: 1;
+}
+
+.filters {
+  background-color: $base-color;
+  margin-left: .7rem;
+
+  @media screen and (max-width: $screen-m) {
+    background-color: transparent;
+  }
+}
+
+.inputWrapper {
+  .magnifyingIcon {
+    @include IconWrapper;
+    padding-left: 1.4rem;
+  }
+
+  .closeIcon {
+    padding-left: 1.5rem;
+    padding-right: 1.4rem;
+  }
+
+  .input {
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    margin-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    color: $text-color;
+  }
+
+  .divider {
+    width: .25rem;
+    height: 1.5rem;
+    background-color: $neutral-color;
+    margin-top: .30rem;
+  }
+
+  @media screen and (max-width: $screen-m) {
+    height: 3rem;
+    width: 80%;
+    background-color: $base-color;
+  }
+}
+
+.statusSelect {
+  width: 5rem;
+  margin-left: .5rem;
+
+  @media screen and (max-width: $screen-m) {
+    width: 80%;
+    background-color: $base-color;
+  }
+}
+
+@media screen and (max-width: $screen-l) {
+  .container {
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+  }
+}
+
+@media screen and (max-width: $screen-m) {
+  .container,
+  .filters {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .container {
+    gap: 1rem;
+  }
+
+  .filters {
+    height: fit-content;
+    margin-left: 0;
+    gap: .5rem
+  }
+}
