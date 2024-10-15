@@ -1,0 +1,58 @@
+@import '../../css/mixins.scss';
+
+.spinner {
+  height: 100%;
+  width: 100%;
+  margin-top: 50%;
+}
+
+.spinner,
+.spinner div {
+  box-sizing: border-box;
+}
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+}
+.spinner div {
+  position: absolute;
+  border: .25rem solid $additional-color;
+  opacity: 1;
+  border-radius: 50%;
+  animation: spinner 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.spinner div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes spinner {
+  0% {
+    top: 2.25rem;
+    left: 2.25rem;
+    width: .5rem;
+    height: .5rem;
+    opacity: 0;
+  }
+  4.9% {
+    top: 2.25rem;
+    left: 2.25rem;
+    width: .5rem;
+    height: .5rem;
+    opacity: 0;
+  }
+  5% {
+    top: 2.25rem;
+    left: 2.25rem;
+    width: .5rem;
+    height: .5rem;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 5rem;
+    height: 5rem;
+    opacity: 0;
+  }
+}

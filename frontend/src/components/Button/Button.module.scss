@@ -1,0 +1,84 @@
+@import '../../css/mixins.scss';
+
+.button {
+  @include flex(center, space-between);
+  padding: .25rem .5rem;
+  margin-right: .25rem;
+  border-radius: .25rem;
+  border: none;
+  outline: none;
+
+  &.primary {
+    background-color: $accent-color;
+    border: .063rem solid $accent-color;
+    color: $base-color;
+
+    &:hover {
+      animation: hover-animation .25s ease;
+      cursor: pointer;
+      background-color: $base-color;
+      color: $accent-color;
+
+      svg {
+        animation: hover-animation .25s ease;
+        fill: $accent-color;
+      }
+    }
+
+    @keyframes hover-animation {
+      from {
+        background-color: $accent-color;
+        color: $base-color;
+        fill: $base-color;
+      }
+      to {
+        background-color: $base-color;
+        color: $accent-color;
+        fill: $accent-color;
+      }
+    }
+  }
+
+  &.secondary {
+    background-color: $base-color;
+    border: .063rem solid $accent-color;
+    color: $accent-color;
+
+    &:hover {
+      animation: animation .25s ease;
+      cursor: pointer;
+      background-color: $accent-color;
+      border-color: $base-color;
+      color: $base-color;
+
+      svg {
+        animation: animation .25s ease;
+        fill: $base-color;
+      }
+
+      @keyframes animation {
+        from {
+          background-color: $base-color;
+          color: $accent-color;
+          fill: $accent-color;
+        }
+        to {
+          background-color: $accent-color;
+          color: $base-color;
+          fill: $base-color;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    color: $shadow-color;
+    border: .063px solid
+    $shadow-color;
+    background-color: $neutral-color;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
