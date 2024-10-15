@@ -1,0 +1,36 @@
+// COLORS
+$base-color: #fff;
+$accent-color: #0f9af1;
+$neutral-color: #f5f6f8;
+$text-color: #192a3e;
+$additional-color: #6a707e;
+$shadow-color: rgba(106, 112, 126, .5);
+
+// STATUSES COLORS
+$working: #2ed47a;
+$onVacation: #f7685b;
+$businessTrip: #a82ed4;
+$lunchTime: #f2c318;
+
+// WIDTH BREAKPOINTS, ETC.
+$content-width: 1440px;
+$screen-l: 1480px;
+$screen-m: 800px;
+$screen-s: 440px;
+
+// MIXINS
+@mixin flex($alignment: center, $justify: center) {
+  display: flex;
+  align-items: $alignment;
+  justify-content: $justify;
+}
+
+@mixin IconWrapper {
+  @include flex;
+  height: 100%;
+  width: 2.1rem;
+}
+
+@mixin box-shadow($color: $shadow-color) {
+  box-shadow: .1rem .1rem .5rem 0 $color;
+}
