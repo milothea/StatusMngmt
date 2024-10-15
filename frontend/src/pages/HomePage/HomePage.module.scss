@@ -1,0 +1,47 @@
+@import '../../css/mixins.scss';
+
+.pageContainer {
+  @include flex(start, center);
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.contentWrapper {
+  @include flex(start, center);
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+
+  .content {
+    width: $content-width;
+
+    .searchPanelWrapper {
+      @include flex;
+      width: 100%;
+      height: 5rem;
+      margin-top: 2.9rem;
+      margin-bottom: 6.6rem;
+
+      @media screen and (max-width: $screen-m) {
+        height: fit-content;
+      }
+    }
+
+    .cardsContainer {
+      @include flex;
+      width: 100%;
+      flex-grow: 1;
+      gap: 3rem;
+      row-gap: 4.1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-m) {
+  .searchPanelWrapper {
+    height: auto;
+  }
+}
